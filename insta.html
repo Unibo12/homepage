@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>★☆ うまちゃんのホームページ ☆★ - いんすた -</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "ＭＳ Ｐゴシック","MS PGothic","Hiragino Kaku Gothic ProN","Osaka",sans-serif;
+    font-size: 15px; line-height: 1.6;
+    text-align: center; margin: 0; padding: 0;
+    background-image: repeating-linear-gradient(0deg, rgba(0,40,0,0.25) 0px, rgba(0,40,0,0.25) 1px, transparent 1px, transparent 3px);
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: #00ffff; }
+  a:visited { color: #ff80ff; }
+  a:hover { color: #ffff00; background-color: #202000; }
+  .blink { animation: blink 1s steps(1,start) infinite; }
+  @keyframes blink { 50% { visibility: hidden; } }
+
+  .wrap { width: 100%; max-width: 780px; margin: 0 auto; padding: 0 10px 30px; }
+
+  .wordart {
+    font-family: "Impact","ＭＳ Ｐゴシック",sans-serif;
+    font-size: clamp(22px, 6vw, 36px);
+    font-weight: bold; font-style: italic; letter-spacing: 1px;
+    background: linear-gradient(180deg, #ffccff 0%, #ff66ff 35%, #cc00cc 60%, #660066 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 2px 2px 0 #400040, 4px 4px 6px #000;
+    transform: skewX(-6deg); display: inline-block; padding: 8px 0; line-height: 1.15;
+  }
+
+  /* ===== インスタ囲い込み：ガチガチ立体緑枠テーブル ===== */
+  table.insta-frame {
+    border: 3px outset #00ff00;
+    border-collapse: separate;
+    background-color: #000000;
+    margin: 14px auto;
+    width: 100%;
+    max-width: 440px;
+  }
+  /* カセットのインデックスカード風ヘッダー */
+  td.insta-head {
+    background-color: #003300;
+    color: #ffff00;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-bottom: 2px groove #00a000;
+    text-align: center;
+  }
+  td.insta-body {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+  }
+  /* 埋め込み（iframe）：横400px中央、スマホでは自動縮小 */
+  .insta-body iframe {
+    width: 100% !important;
+    max-width: 400px;
+    height: 540px;
+    border: 2px inset #00aa00 !important;
+    background: #111;
+    display: block;
+    margin: 0 auto;
+  }
+  /* 埋め込み未設定時のダミー枠 */
+  .insta-dummy {
+    width: 100%; max-width: 400px; height: 540px;
+    border: 2px inset #00aa00; background: #0a0a0a;
+    margin: 0 auto; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+    color: #80c080; font-size: 13px; padding: 16px; text-align: center;
+  }
+
+  .panel { border:4px ridge #00a000; background:#000800; padding:12px 14px; margin:14px auto; text-align:left; font-size:13px; }
+  hr.kira { border:0; border-top:1px ridge #00a000; margin:18px 0; }
+  .small { font-size: 11px; color:#80c080; }
+  code { color:#00ff88; background:#001800; padding:1px 4px; word-break:break-all; }
+</style>
+</head>
+
+<body>
+
+<marquee scrollamount="6" direction="left"
+  style="background:#001000; color:#00ff00; border-bottom:1px solid #004000; padding:3px;">
+　★☆★ 令和最新鋭！ うまちゃんのインスタコーナー ★☆★　│　音量注意　│　いいね♥ 押し逃げ歓迎　★☆★
+</marquee>
+
+<div class="wrap">
+  <p style="height:8px;margin:0;"></p>
+  <div>
+    <span class="wordart">うまちゃんの いんすた</span><br>
+    <span style="color:#ff66ff; font-size:13px;">― 時空の歪み、ここに極まれり ―</span>
+  </div>
+
+  <!-- ===== インスタ埋め込み（立体緑枠テーブルでハメ込み） ===== -->
+  <table class="insta-frame" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="insta-head">
+        ✨ うまちゃんの 映え（ばえ）る変態的いんすたぐらむ（音量注意） ✨
+      </td>
+    </tr>
+    <tr>
+      <td class="insta-body">
+        <!--
+          ▼▼▼ ここに実際のインスタ埋め込みコードを貼る ▼▼▼
+          投稿ページの「…」→「埋め込み」からコピーした <iframe> か、
+          または下のように投稿IDだけ差し替えればOK：
+          <iframe src="https://www.instagram.com/p/投稿ID/embed" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        -->
+
+        <!-- いまはダミー表示。上のコメントの iframe に差し替えてください -->
+        <div class="insta-dummy">
+          <span style="font-size:40px;">📷</span>
+          <b style="color:#ff66ff;">ここにインスタ投稿が入ります</b>
+          <span>
+            インスタの投稿で「…」→「埋め込み」を開き、<br>
+            出てきた <code>&lt;iframe&gt;</code> をこの枠に貼るだけ。<br>
+            または <code>https://www.instagram.com/p/投稿ID/embed</code><br>
+            を src にした iframe を入れてください。
+          </span>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+  <!-- ===== あの頃風 赤文字チカチカ注意書き ===== -->
+  <span class="blink" style="color:#ff0000; font-size:12px;">
+    ※音が出ない旅人は、画像右下のスピーカーアイコンをクリック（推奨）！音量テロに注意してね（藁
+  </span>
+
+  <hr class="kira">
+
+  <div class="panel">
+    <b style="color:#ffff00;">▼ 管理人より</b><br>
+    現代のキラキラインスタを、あえて20年前のテーブルに閉じ込めてみました。
+    この違和感こそが、令和に残された最後の哀愁です。どうぞお納めください。
+  </div>
+
+  <p>
+    <a href="top.html">【 館内（メニュー）にもどる 】</a>
+    <a href="index.html">【 玄関へ 】</a>
+  </p>
+
+  <p class="small">Last update : 2026.06.06 ／ Copyright(C) うまちゃんのホームページ</p>
+</div>
+
+</body>
+</html>
