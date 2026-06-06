@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>★☆ うまちゃんのホームページ ☆★ - 館内 -</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "ＭＳ Ｐゴシック","MS PGothic","Hiragino Kaku Gothic ProN","Osaka",sans-serif;
+    font-size: 15px; line-height: 1.6;
+    text-align: center; margin: 0; padding: 0;
+    background-image: repeating-linear-gradient(0deg, rgba(0,40,0,0.25) 0px, rgba(0,40,0,0.25) 1px, transparent 1px, transparent 3px);
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: #00ffff; }
+  a:visited { color: #ff80ff; }
+  a:hover { color: #ffff00; background-color: #202000; }
+  .blink { animation: blink 1s steps(1,start) infinite; }
+  @keyframes blink { 50% { visibility: hidden; } }
+
+  .wrap { width: 100%; max-width: 780px; margin: 0 auto; padding: 0 10px 30px; }
+
+  .wordart {
+    font-family: "Impact","ＭＳ Ｐゴシック",sans-serif;
+    font-size: clamp(24px, 6.5vw, 40px);
+    font-weight: bold; font-style: italic; letter-spacing: 1px;
+    background: linear-gradient(180deg, #ffffcc 0%, #ffff00 30%, #ff8000 55%, #c00000 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 2px 2px 0 #800000, 4px 4px 6px #000;
+    transform: skewX(-6deg); display: inline-block; padding: 8px 0; line-height: 1.15;
+  }
+
+  /* ===== メニュー（スマホでは自動で縦並び） ===== */
+  .menu {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin: 18px auto; max-width: 600px;
+  }
+  .menu a {
+    flex: 1 1 160px;
+    border: 2px groove #408040;
+    background: #000800;
+    padding: 14px 8px;
+    text-decoration: none;
+    color: #00ffff;
+    font-weight: bold;
+  }
+  .menu a:hover { background:#102010; color:#ffff00; }
+
+  .panel {
+    border: 4px ridge #00a000;
+    background: #000800;
+    padding: 14px 16px; margin: 14px auto; text-align: left;
+  }
+  hr.kira { border:0; border-top:1px ridge #00a000; margin:18px 0; }
+  .small { font-size: 11px; color:#80c080; }
+
+  /* Windows風ポップアップ */
+  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.55); display:none; align-items:center; justify-content:center; z-index:9999; padding:12px; }
+  .modal-overlay.show { display:flex; }
+  .win98 { width:380px; max-width:92vw; background:#c0c0c0; border:2px solid #000; border-top-color:#fff; border-left-color:#fff; box-shadow:3px 3px 0 #000; font-family:"ＭＳ Ｐゴシック","MS PGothic",sans-serif; color:#000; text-align:left; }
+  .win98 .tb { background:linear-gradient(90deg,#000080,#1084d0); color:#fff; font-weight:bold; font-size:13px; padding:3px 4px 3px 8px; display:flex; justify-content:space-between; align-items:center; }
+  .win98 .tb .x { background:#c0c0c0; color:#000; border:2px outset #fff; width:20px; height:18px; text-align:center; line-height:14px; font-weight:bold; cursor:pointer; font-size:11px; }
+  .win98 .bd { padding:16px 16px 6px; display:flex; gap:14px; align-items:flex-start; font-size:14px; line-height:1.5; }
+  .win98 .ic { font-size:36px; }
+  .win98 .ft { text-align:center; padding:8px 16px 16px; }
+  .win98 .ok { background:#c0c0c0; border:2px outset #fff; padding:5px 28px; font-size:13px; cursor:pointer; font-family:inherit; min-width:90px; }
+  .win98 .ok:active { border-style:inset; }
+</style>
+</head>
+
+<body>
+
+<marquee scrollamount="6" direction="left"
+  style="background:#001000; color:#00ff00; border-bottom:1px solid #004000; padding:3px;">
+　★☆★ようこそ館内へ★☆★　ごゆっくりどうぞ　│　更新情報はマメにチェックしてね　★☆★
+</marquee>
+
+<div class="wrap">
+  <p style="height:8px;margin:0;"></p>
+  <div>
+    <span class="wordart">うまちゃんのホームページ</span><br>
+    <span style="color:#00ffff; font-size:13px;">― 館内へようこそ ―</span>
+  </div>
+
+  <div class="panel">
+    <span class="blink" style="color:#ffff00;">★</span>
+    よくぞお入りくださいました、旅人さん。<br>
+    ここは管理人「うまちゃん」のささやかな隠れ家です。
+    お好きなお部屋（メニュー）からどうぞ。
+  </div>
+
+  <!-- メニュー -->
+  <div class="menu">
+    <a href="diary.html">■ 日記</a>
+    <a href="#" onclick="popup('construction');return false;">■ ぷろふぃーる</a>
+    <a href="#" onclick="popup('bbs');return false;">■ 掲示板</a>
+    <a href="#" onclick="popup('construction');return false;">■ りんく</a>
+    <a href="#" onclick="popup('construction');return false;">■ めーる</a>
+  </div>
+
+  <hr class="kira">
+
+  <p><a href="index.html">【 玄関（トップ）にもどる 】</a></p>
+
+  <p class="small">
+    Last update : 2026.06.06 ／ Copyright(C) うまちゃんのホームページ
+  </p>
+</div>
+
+<!-- Windows風ポップアップ -->
+<div class="modal-overlay" id="modal">
+  <div class="win98">
+    <div class="tb"><span id="modal-title">おしらせ</span><span class="x" onclick="closePopup()">×</span></div>
+    <div class="bd"><span class="ic" id="modal-icon">🚧</span><span id="modal-msg"></span></div>
+    <div class="ft"><button class="ok" onclick="closePopup()">　ＯＫ　</button></div>
+  </div>
+</div>
+
+<script>
+  var MESSAGES = {
+    construction: { title:"おしらせ", icon:"🚧",
+      msg:"このお部屋は ただいま工事中です（汗）<br><br>もうしばらくお待ちください。" },
+    bbs: { title:"じゅんびちゅう", icon:"📌",
+      msg:"掲示板はただいま準備中です。<br><br>もうすぐ開設予定！　しばしお待ちを。" }
+  };
+  function popup(key) {
+    var m = MESSAGES[key] || MESSAGES.construction;
+    document.getElementById("modal-title").textContent = m.title;
+    document.getElementById("modal-icon").textContent = m.icon;
+    document.getElementById("modal-msg").innerHTML = m.msg;
+    document.getElementById("modal").classList.add("show");
+  }
+  function closePopup() { document.getElementById("modal").classList.remove("show"); }
+</script>
+
+</body>
+</html>
