@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=800">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>★☆ うまちゃんのホームページ ☆★ - 日記（にっき） -</title>
+<style>
+  /* ====== トップページの世界観を継承 ====== */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "ＭＳ Ｐゴシック", "MS PGothic", "Osaka", monospace;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,40,0,0.25) 0px, rgba(0,40,0,0.25) 1px, transparent 1px, transparent 3px);
+  }
+  a { color: #00ffff; }
+  a:visited { color: #ff80ff; }
+  a:hover { color: #ffff00; background-color: #202000; }
+
+  .blink { animation: blink 1s steps(1, start) infinite; }
+  @keyframes blink { 50% { visibility: hidden; } }
+
+  /* ====== ページ見出し（3Dワードアート風） ====== */
+  .pagetitle {
+    font-family: "Impact", "ＭＳ Ｐゴシック", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #ccffff 0%, #00ffff 35%, #0080ff 60%, #000080 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 0 #002040, 4px 4px 6px #000;
+    transform: skewX(-6deg);
+    display: inline-block;
+    padding: 8px 0;
+  }
+
+  /* ====== 外枠：緑の立体ボーダー ====== */
+  .frame {
+    border: 4px ridge #00a000;
+    background-color: #000800;
+    width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ====== 日記1件のヘッダ（レトロ） ====== */
+  .diary-head {
+    background: linear-gradient(180deg, #003000 0%, #006000 50%, #002000 100%);
+    color: #ffff00;
+    font-weight: bold;
+    border: 2px outset #00ff00;
+    padding: 6px 10px;
+    text-align: left;
+    font-size: 15px;
+  }
+  .diary-head .label {
+    color: #00ff00;
+    background: #000;
+    border: 1px inset #008000;
+    padding: 0 4px;
+    margin-right: 4px;
+    font-size: 12px;
+  }
+
+  /* ====== 日記本文枠 ====== */
+  .diary-body {
+    color: #ffffff;
+    text-align: left;
+    padding: 14px 16px;
+    line-height: 1.7;
+    border: 2px inset #004000;
+    background-color: #000400;
+  }
+
+  /* 💡 CSSによる強制化石化 ====== */
+  /* 記事内のすべての画像：緑の立体枠 */
+  .diary-body img {
+    border: 3px inset #00ff00 !important;
+    max-width: 90% !important;
+    height: auto !important;
+    background: #001000;
+    padding: 2px;
+    margin: 6px 0;
+  }
+  /* 記事内のすべての埋め込み動画：4:3＋昔のメディアプレイヤー風 */
+  .diary-body iframe {
+    width: 400px !important;
+    height: 300px !important;
+    border: 4px outset #00ff00 !important;
+    background: #000;
+    display: block;
+    margin: 8px auto;
+  }
+  /* 黒文字対策：本文の文字は必ず白（リンクだけ下のルールでシアン） */
+  .diary-body, .diary-body * { color: #ffffff; }
+  .diary-body a { color: #00ffff !important; }
+  .diary-body table { color:#fff; }
+
+  /* YouTubeフォールバックリンク（動画が表示できない時の保険） */
+  .yt-fallback {
+    display:block;
+    text-align:center;
+    font-size:12px;
+    color:#ffff00;
+    margin:0 auto 12px auto;
+  }
+  .yt-fallback a { color:#ffff00 !important; }
+
+  .sep { color:#00a000; }
+
+  .small { font-size: 11px; color: #80c080; }
+
+  .loading {
+    color:#00ff00;
+    background:#001000;
+    border:2px inset #008000;
+    padding:8px;
+    font-family:"Courier New", monospace;
+  }
+  .backlink {
+    display:inline-block;
+    font-weight:bold;
+    color:#000;
+    background: linear-gradient(180deg, #b0ffb0 0%, #00c000 50%, #006000 100%);
+    border:3px outset #00ff00;
+    padding:6px 24px;
+    text-decoration:none;
+    margin:14px;
+  }
+  .backlink:hover { border-style:inset; background:linear-gradient(180deg,#ffffb0,#c0c000,#606000); }
+</style>
+</head>
+
+<body>
+
+<!-- 上部マーキー -->
+<marquee scrollamount="6" direction="left"
+  style="background:#001000; color:#00ff00; border-bottom:1px solid #004000; padding:3px;">
+　★☆★ 管理人の今日のひとこと日記コーナーです ★☆★　│　更新はBloggerからこっそり投稿してます(笑)　│　無断リンクＯＫ・無断転載ＮＧ　★☆★
+</marquee>
+
+<table width="780" cellpadding="0" cellspacing="0" align="center">
+<tr><td height="16"></td></tr>
+
+<tr><td align="center">
+  <span class="pagetitle">うまちゃんの日記</span><br>
+  <span style="color:#00ffff; font-size:12px;">～ ぼやき・グチ・たまに役立つ情報 ～</span>
+</td></tr>
+
+<tr><td height="14"></td></tr>
+
+<!-- ====== 日記が流し込まれる場所 ====== -->
+<tr><td align="center">
+  <div class="frame">
+    <div id="diary-area" style="padding:12px;">
+      <!-- NOW LOADING インジケーター -->
+      <div class="loading" id="loading">
+        <marquee scrollamount="4" width="400">
+          ⏳ ＮＯＷ　ＬＯＡＤＩＮＧ　ＣＧＩ... しばらくお待ちください...
+        </marquee>
+      </div>
+    </div>
+  </div>
+</td></tr>
+
+<tr><td height="10"></td></tr>
+
+<!-- トップへ戻る -->
+<tr><td align="center">
+  <a href="index.html" class="backlink">【 トップページに戻る 】</a>
+</td></tr>
+
+<tr><td align="center">
+  <span class="small">
+    <span class="blink" style="color:#00ff00;">★</span>
+    Powered by Blogger ＆ 気合 ／ Last update : 2026.06.06
+    <span class="blink" style="color:#00ff00;">★</span>
+  </span>
+</td></tr>
+
+<tr><td height="30"></td></tr>
+</table>
+
+<script>
+// ========================================================
+//  BloggerをHeadless CMSとして利用（JSONP方式でCORS回避）
+// ========================================================
+var BLOG_URL = "https://kanazawamemo.blogspot.com";
+var MAX = 10;
+
+// 日付を「2026年06月06日」形式に
+function fmtDate(iso) {
+  // iso 例: "2026-06-06T12:34:56.000+09:00"
+  var m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return iso;
+  return m[1] + "年" + m[2] + "月" + m[3] + "日";
+}
+
+// HTMLエスケープ（タイトル用）
+function esc(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ====== 強制化石化その2：黒文字対策 ======
+// Bloggerの本文に入っているインラインの文字色・背景色指定を剥がし、
+// サイト側CSS（白文字・黒背景）が必ず効くようにする。
+// → 投稿時に色を気にしなくてOK。レイアウトや太字・画像枠はそのまま残る。
+function fossilize(html) {
+  if (!html) return html;
+  // style属性内の background-color / background / color を除去（順番大事）
+  html = html.replace(/background(-color)?\s*:\s*[^;"']*;?/gi, "");
+  html = html.replace(/color\s*:\s*[^;"']*;?/gi, "");
+  // 古い属性 bgcolor="" / <font color=""> も除去
+  html = html.replace(/\sbgcolor\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+  html = html.replace(/\scolor\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+  return html;
+}
+
+// ====== YouTube等の埋め込みにフォールバックリンクを付ける ======
+function addVideoFallback(root) {
+  var iframes = root.getElementsByTagName("iframe");
+  var list = [];
+  for (var i = 0; i < iframes.length; i++) list.push(iframes[i]);
+  for (var j = 0; j < list.length; j++) {
+    var f = list[j];
+    var src = f.getAttribute("src") || "";
+    var m = src.match(/(?:youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/)([\w\-]+)/);
+    if (!m) continue;
+    var watch = "https://www.youtube.com/watch?v=" + m[1];
+    var p = document.createElement("div");
+    p.className = "yt-fallback";
+    p.innerHTML = '▶ 動画が見れない場合はこちら → '
+      + '<a href="' + watch + '" target="_blank" rel="noopener">YouTubeで開く</a>';
+    if (f.nextSibling) f.parentNode.insertBefore(p, f.nextSibling);
+    else f.parentNode.appendChild(p);
+  }
+}
+
+// ====== Bloggerフィードのコールバック ======
+function renderDiary(json) {
+  var area = document.getElementById("diary-area");
+  var loading = document.getElementById("loading");
+  if (loading) loading.parentNode.removeChild(loading);
+
+  var entries = (json && json.feed && json.feed.entry) ? json.feed.entry : [];
+  if (!entries.length) {
+    area.innerHTML = '<div class="diary-body" style="color:#ff8080;">'
+      + '（…ただいま日記がありません。Bloggerにまだ投稿していないか、'
+      + '通信に失敗したようです(汗)）</div>';
+    return;
+  }
+
+  var html = "";
+  for (var i = 0; i < entries.length; i++) {
+    var e = entries[i];
+    var title = (e.title && e.title.$t) ? e.title.$t : "（無題）";
+    var date  = (e.published && e.published.$t) ? fmtDate(e.published.$t) : "";
+    var body  = (e.content && e.content.$t) ? e.content.$t
+              : (e.summary && e.summary.$t) ? e.summary.$t : "";
+    body = fossilize(body);
+
+    html += '<table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:18px;">';
+    // レトロなヘッダ：【日付】〜｜【画題】〜
+    html += '<tr><td class="diary-head">'
+          + '<span class="label">日付</span>' + esc(date)
+          + ' <span class="sep">｜</span> '
+          + '<span class="label">画題</span>' + esc(title)
+          + '</td></tr>';
+    // 本文（Bloggerのリッチテキストをそのまま流し込む → CSSで強制化石化）
+    html += '<tr><td class="diary-body">' + body + '</td></tr>';
+    html += '</table>';
+  }
+  area.innerHTML = html;
+  // 描画後、YouTube等にフォールバックリンクを付与
+  addVideoFallback(area);
+}
+
+// ====== JSONP読み込み ======
+function loadFeed() {
+  var s = document.createElement("script");
+  s.src = BLOG_URL + "/feeds/posts/default?alt=json-in-script"
+        + "&max-results=" + MAX
+        + "&callback=renderDiary";
+  s.onerror = function() {
+    var loading = document.getElementById("loading");
+    if (loading) {
+      loading.innerHTML =
+        '<span style="color:#ff8080;">⚠ 通信エラー：日記の取得に失敗しました(回線が混んでるのかも)</span>';
+    }
+  };
+  document.body.appendChild(s);
+}
+
+// あえて一拍おいて「CGIっぽい」読み込み感を演出
+setTimeout(loadFeed, 800);
+</script>
+
+</body>
+</html>
