@@ -194,9 +194,9 @@
   <!-- カウンター（今は見た目だけ。次回サーバーで本物にする） -->
   <p style="margin:10px 0;">
     <span class="small">あなたは</span>
-    <span class="counter">00004545</span>
+    <span class="counter" id="counter">--------</span>
     <span class="small">人目の旅人です</span><br>
-    <span class="blink" style="color:#ff0000; font-size:12px;">
+    <span class="blink" id="kiriban-note" style="color:#ff0000; font-size:12px;">
       ※キリ番（4545等）を踏んだ方は掲示板まで！踏み逃げ厳禁！！
     </span>
   </p>
@@ -280,6 +280,11 @@
       title: "おしらせ",
       icon: "🚧",
       msg: "このページは ただいま工事中です（汗）<br><br>もうしばらくお待ちください。"
+    },
+    kiriban: {
+      title: "おめでとう！",
+      icon: "🎉",
+      msg: "あなたは <b>キリ番</b> を踏みました！<br><br>掲示板までご報告ください。踏み逃げは厳禁ですよ〜！"
     }
   };
   function popup(key) {
@@ -292,6 +297,50 @@
   function closePopup() {
     document.getElementById("modal").classList.remove("show");
   }
+
+  // ===== キリ番カウンター（Abacus・外注。Cloudflareの書き込みは0回） =====
+  (function() {
+    var BASE = 4544;                 // 開設当初からの下駄（昔のサイト定番の水増し）
+    var NS = "umachan-homepage", KEY = "visits";
+    var el = document.getElementById("counter");
+    var note = document.getElementById("kiriban-note");
+
+    function pad(n) { n = String(n); while (n.length < 8) n = "0" + n; return n; }
+    function isKiriban(n) {
+      if (n % 1000 === 0) return true;                 // 5000・10000等のキリ番
+      if (/^(\d)\1+$/.test(String(n))) return true;     // ゾロ目（4444 等）
+      if (n === 4545 || n === 7777 || n === 2525) return true; // 縁起のいい番号
+      return false;
+    }
+    function render(value) {
+      var disp = value + BASE;
+      if (el) el.textContent = pad(disp);
+      if (isKiriban(disp)) {
+        if (note) note.innerHTML = "★☆ おめでとう！あなたはキリ番 " + disp + " 番です！掲示板へ報告を！ ☆★";
+        popup("kiriban");
+      }
+    }
+
+    var counted = false;
+    try { counted = sessionStorage.getItem("umachan_counted") === "1"; } catch (e) {}
+    // 同じ人が更新で連打しても、1セッション1回だけ加算（hit）。以降は加算なしのget。
+    var action = counted ? "get" : "hit";
+    var url = "https://abacus.jasoncameron.dev/" + action + "/" + NS + "/" + KEY;
+
+    fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(j) {
+        if (j && typeof j.value === "number") {
+          try { sessionStorage.setItem("umachan_counted", "1"); } catch (e) {}
+          render(j.value);
+        } else if (el) {
+          el.textContent = pad(BASE);   // キーがまだ無い等
+        }
+      })
+      .catch(function() {
+        if (el) el.textContent = "00004545";   // 通信失敗時のフォールバック
+      });
+  })();
 </script>
 
 </body>
